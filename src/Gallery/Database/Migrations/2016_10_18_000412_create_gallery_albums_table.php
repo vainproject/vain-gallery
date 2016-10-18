@@ -16,8 +16,14 @@ class CreateGalleryAlbumsTable extends Migration
             $table->increments('id');
 
             $table->string('slug')->unique();
+            $table->boolean('active')->default(false);
 
-            $table->timestamps();
+            $table->integer('user_id')->unsigned();
+
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 

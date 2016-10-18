@@ -13,7 +13,7 @@ class Album extends Model implements Translatable
 
     protected $table = "gallery_albums";
 
-    protected $fillable = ['slug', 'active'];
+    protected $fillable = ['slug', 'active', 'user_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -29,5 +29,10 @@ class Album extends Model implements Translatable
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function scopeActive()
+    {
+        return $this->where('active', true);
     }
 }

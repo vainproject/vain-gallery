@@ -21,7 +21,8 @@ class CreateGalleryImagesTable extends Migration
 
             $table->boolean('active')->default(false);
 
-            $table->timestamps();
+            $table->nullableTimestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('album_id')->references('id')->on('gallery_albums')->onDelete('set null');

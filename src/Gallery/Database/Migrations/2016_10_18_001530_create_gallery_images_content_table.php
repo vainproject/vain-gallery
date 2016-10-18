@@ -22,7 +22,7 @@ class CreateGalleryImagesContentTable extends Migration
             $table->string('description');
             $table->text('text');
 
-            $table->timestamps();
+            $table->nullableTimestamps();
 
             $table->foreign('image_id')->references('id')->on('gallery_images')->onDelete('cascade');
             $table->unique(['image_id', 'locale']);
