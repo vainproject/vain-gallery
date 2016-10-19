@@ -31,8 +31,6 @@ class AlbumController extends Controller
         /** @var Album $album */
         $album = Album::create(array_merge($request->all(), ['user_id' => $request->user()->id]));
 
-        $album->user()->associate($request->user());
-
         foreach (config('app.locales') as $locale => $name) {
             $content = (new AlbumContent())
                 ->fillTranslated($locale, $request->all());

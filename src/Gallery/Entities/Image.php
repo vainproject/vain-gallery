@@ -15,7 +15,7 @@ class Image extends Model implements Translatable, HasMedia
 
     protected $table = "gallery_images";
 
-    protected $fillable = ['slug'];
+    protected $fillable = ['slug', 'album_id', 'user_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -31,5 +31,13 @@ class Image extends Model implements Translatable, HasMedia
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
     }
 }

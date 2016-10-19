@@ -15,6 +15,11 @@ class Album extends Model implements Translatable
 
     protected $fillable = ['slug', 'active', 'user_id'];
 
+    public function __toString()
+    {
+        return $this->content->title;
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -31,8 +36,19 @@ class Album extends Model implements Translatable
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return mixed
+     */
     public function scopeActive()
     {
         return $this->where('active', true);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }

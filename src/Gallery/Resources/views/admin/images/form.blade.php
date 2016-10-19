@@ -4,11 +4,11 @@
             <div class="box-body">
                 <button class="btn btn-success" type="submit">
                     <i class="fa fa-floppy-o fa-lg"></i>&nbsp;
-                    @lang('gallery::admin.albums.action.save')
+                    @lang('gallery::admin.images.action.save')
                 </button>
-                <a class="btn btn-default" href="{{ route('gallery.admin.albums.index') }}">
+                <a class="btn btn-default" href="{{ route('gallery.admin.images.index') }}">
                     <i class="fa fa-ban fa-lg"></i>&nbsp;
-                    @lang('gallery::admin.albums.action.abort')
+                    @lang('gallery::admin.images.action.abort')
                 </a>
             </div>
         </div>
@@ -22,19 +22,19 @@
     <div class="col-md-6 col-sm-12">
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">@lang('gallery::admin.albums.section.general')</h3>
+                <h3 class="box-title">@lang('gallery::admin.images.section.general')</h3>
             </div>
             <div class="box-body">
                 <div class="form-group">
-                    {!! Form::label('slug', trans('gallery::admin.albums.field.slug'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('slug', trans('gallery::admin.images.field.slug'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
                         {!! Form::text('slug', null, ['class' => 'form-control']) !!}
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('active', trans('gallery::admin.albums.field.active'), ['class' => 'col-sm-3 control-label']) !!}
+                    {!! Form::label('album_id', trans('gallery::admin.images.field.album_id'), ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
-                        {!! Form::select('active', ['0' => trans('gallery::admin.albums.value.inactive'), '1' => trans('gallery::admin.albums.value.active')], isset($album) ? $album->active : 0, ['class' => 'form-control']) !!}
+                        {!! Form::select('album_id', $albums, isset($image) ? $image->album : '', ['class' => 'form-control']) !!}
                     </div>
                 </div>
             </div><!-- /.box-body -->
@@ -54,7 +54,7 @@
     <div class="tab-content" data-auto-active>
         @foreach($locales as $locale => $name)
             <div role="tabpanel" class="tab-pane" id="{{ $locale }}">
-                @include('gallery::admin.albums.content', ['locale' => $locale])
+                @include('gallery::admin.images.content', ['locale' => $locale])
             </div>
         @endforeach
     </div>
