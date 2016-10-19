@@ -15,11 +15,6 @@ class Album extends Model implements Translatable
 
     protected $fillable = ['slug', 'active', 'user_id'];
 
-    public function __toString()
-    {
-        return $this->content->title;
-    }
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
