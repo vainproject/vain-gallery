@@ -10,8 +10,6 @@ var scripts_include = [
     'node_modules/blueimp-gallery/js/jquery.blueimp-gallery.min.js'
 ];
 
-var copy
-
 module.exports = function (compile_scripts) {
     scripts_include.forEach(function (script) {
         compile_scripts.push(path + script)
