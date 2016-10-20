@@ -1,6 +1,4 @@
-var _ = require('lodash');
-
-var scripts = [
+var scripts_include = [
     './node_modules/blueimp-gallery/js/blueimp-gallery.min.js',
     './node_modules/blueimp-gallery/js/blueimp-gallery-fullscreen.js',
     './node_modules/blueimp-gallery/js/blueimp-gallery-indicator.js',
@@ -10,23 +8,14 @@ var scripts = [
     './node_modules/blueimp-gallery/js/jquery.blueimp-gallery.min.js'
 ];
 
-var styles = [
-    './src/Gallery/Resources/assets/less/gallery.less'
+var styles_include = [
+    './node_modules/vain-gallery/resources/assets/less/gallery.less'
 ];
 
-// TODO check if we really want to merge those files into the main
-// app.css/app.js or if it would be possible to generate each modules
-// assets by its own demise
-module.exports = function (mix, scripts_include, styles_include) {
+module.exports = function (mix) {
 
-    // add our scripts to the main scripts array
-    _.each(scripts, function (script) {
-        scripts_include.push(script);
-    });
+    mix.less(styles_include, 'public/static/css/gallery.css', './');
 
-    // add our styles to the main styles array
-    _.each(styles, function (script) {
-        styles_include.push(script);
-    });
+    mix.scripts(scripts_include, 'public/static/js/gallery.js', './');
 };
 
