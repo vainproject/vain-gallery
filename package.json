@@ -1,6 +1,10 @@
 {
   "private": true,
+  "name": "vain-gallery",
+  "version": "0.1.0",
+  "main": "gulpfile-module.js",
   "dependencies": {
+    "lodash": "^4.0.0",
     "blueimp-gallery": "^2.0.0"
   }
 }
