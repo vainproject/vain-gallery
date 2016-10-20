@@ -39,7 +39,10 @@ return [
         ],
         'delete' => [
             'message' => 'Das Album wirklich löschen?',
-        ]
+        ],
+        'save' => [
+            'success' => 'Erfolgreich gespeichert.',
+        ],
     ],
     'images' => [
         'title' => [
@@ -48,6 +51,7 @@ return [
         ],
         'section' => [
             'general' => 'Allgemein',
+            'image' => 'Bild',
         ],
         'field' => [
             'id' => 'ID',
@@ -58,7 +62,8 @@ return [
             'keywords' => 'Keywords',
             'description' => 'Beschreibung',
             'text' => 'Text',
-            'album_id' => 'Album'
+            'album_id' => 'Album',
+            'image' => 'Bild',
         ],
         'action' => [
             'edit' => 'Bearbeiten',
@@ -66,6 +71,13 @@ return [
             'create' => 'Erstellen',
             'save' => 'Speichern',
             'abort' => 'Abbrechen',
+            'confirm' => 'Bestätigen',
+        ],
+        'delete' => [
+            'message' => 'Das Bild wirklich löschen?',
+        ],
+        'save' => [
+            'success' => 'Erfolgreich gespeichert.',
         ],
     ],
 ];

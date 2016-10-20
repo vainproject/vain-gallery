@@ -95,6 +95,6 @@ class AlbumController extends Controller
             return response('', 200);
         }
 
-        return redirect()->route('blog.admin.categories.index');
+        return redirect()->route('gallery.admin.album.index');
     }
 }

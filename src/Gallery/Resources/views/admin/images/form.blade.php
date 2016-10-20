@@ -40,6 +40,28 @@
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">@lang('gallery::admin.images.section.image')</h3>
+            </div>
+            <div class="box-body">
+                <div class="row">
+                    {!! Form::label('image', trans('gallery::admin.images.field.image'), ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::file('image', null) !!}
+                    </div>
+                    @if(isset($image) && $image->hasMedia())
+                        <div class="col-sm-3">
+                            @foreach($image->getMedia() as $media)
+                                <img src="{{ $media->getUrl() }}" class="col-sm-12 pull-right">
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
 
 </div><!-- /.row -->
 

@@ -15,7 +15,7 @@
     <section class="content">
         {!! Form::open([
             'class' => 'form-horizontal',
-            'data-remote',
+            'files' => true,
             'data-remote-success-redirect' => route('gallery.admin.images.index'),
             'data-remote-error-message' => trans('gallery::admin.images.save.error'),
             'route' => ['gallery.admin.images.store']]) !!}

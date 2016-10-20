@@ -35,6 +35,11 @@ class ImageController extends Controller
         /** @var Image $image */
         $image = Image::create(array_merge($request->all(), ['user_id' => $request->user()->id]));
 
+        if ($request->hasFile('image')) {
+            $image->addMedia($request->file('image'))
+                ->toMediaLibrary();
+        }
+
         foreach (config('app.locales') as $locale => $name) {
             $content = (new ImageContent())
                 ->fillTranslated($locale, $request->all());
@@ -70,6 +75,12 @@ class ImageController extends Controller
         $image->fill($request->all());
         $image->save();
 
+        if ($request->hasFile('image')) {
+            $image->clearMediaCollection();
+            $image->addMedia($request->file('image'))
+                ->toMediaLibrary();
+        }
+
         foreach (config('app.locales') as $locale => $name) {
             $content = $image->contents()
                 ->localeOrNew($locale)
@@ -103,6 +114,6 @@ class ImageController extends Controller
             return response('', 200);
         }
 
-        return redirect()->route('blog.admin.categories.index');
+        return redirect()->route('gallery.admin.images.index');
     }
 }

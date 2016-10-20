@@ -15,7 +15,7 @@
     <section class="content">
         {!! Form::model($image, [
             'class' => 'form-horizontal',
-            'data-remote',
+            'files' => true,
             'data-remote-success-message' => trans('gallery::admin.images.save.success'),
             'data-remote-error-message' => trans('gallery::admin.images.save.error'),
             'method' => 'PUT',
