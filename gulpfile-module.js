@@ -5,8 +5,7 @@ var scripts_include = [
     './node_modules/blueimp-gallery/js/blueimp-gallery-video.js',
     './node_modules/blueimp-gallery/js/blueimp-gallery-vimeo.js',
     './node_modules/blueimp-gallery/js/blueimp-gallery-youtube.js',
-    './node_modules/blueimp-gallery/js/jquery.blueimp-gallery.min.js',
-    './node_modules/masonry-layout/dist/masonry.pkgd.min.js'
+    './node_modules/blueimp-gallery/js/jquery.blueimp-gallery.min.js'
 ];
 
 var styles_include = [

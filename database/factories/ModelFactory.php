@@ -29,9 +29,9 @@ $factory->define(AlbumContent::class, function (Faker\Generator $faker) {
     return [
         'locale' => 'en',
         'title' => $faker->sentence(3),
-        'text' => $faker->sentence(6),
+        'text' => $faker->text,
         'keywords' => $faker->words(4, true),
-        'description' => $faker->text,
+        'description' => $faker->sentence(6),
     ];
 });
 
@@ -47,8 +47,8 @@ $factory->define(ImageContent::class, function (Faker\Generator $faker) {
     return [
         'locale' => 'en',
         'title' => $faker->sentence(3),
-        'text' => $faker->sentence(6),
+        'text' => $faker->text,
         'keywords' => $faker->words(4, true),
-        'description' => $faker->text,
+        'description' => $faker->sentence(6),
     ];
 });

@@ -11,18 +11,18 @@
 
 @section('content')
     <div id="gallery">
-        <div class="grid">
+        <div class="row">
             @foreach($albums as $album)
-                <div class="grid-item album-item">
+                <div class="col-sm-4">
                     <a href="{{ route('gallery.album.show', $album->slug) }}">
                         <img class="img-responsive" src="{{ $album->cover_image_url }}">
-                        <p class="lead">{{ $album->content->title }}</p>
+                        <p>{{ $album->content->title }}</p>
                     </a>
-                    <p>{{ $album->content->description }}</p>
-                    <hr>
+                    {{--<p>{{ $album->content->text }}</p>--}}
+                    <br>
                 </div>
             @endforeach
         </div>
-        <div>{!! $albums->render() !!}</div>
+        <div>{!! $albums->render(new \Vain\Presenters\Pagination\SimpleFrontendPresenter($albums)) !!}</div>
     </div>
 @endsection

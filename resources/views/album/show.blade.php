@@ -27,7 +27,6 @@
             <div class="col-md-4">
                 {{-- Album information --}}
                 <h1>{{ $album->content->title }}</h1>
-                <p>{{ $album->content->description }}</p>
                 <hr>
                 <p>{{ $album->content->text }}</p>
             </div>
