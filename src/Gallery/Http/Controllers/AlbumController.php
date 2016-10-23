@@ -8,12 +8,15 @@ class AlbumController extends Controller
 
     public function index()
     {
-        return view('gallery::album.index');
+        $albums = Album::with('content')->active()->paginate(9);
+
+        return view('gallery::album.index')->with('albums', $albums);
     }
 
     public function show($slug)
     {
-        $album = Album::active()
+        $album = Album::with('content', 'images')
+            ->active()
             ->where('slug', $slug)
             ->first();
 

@@ -28,17 +28,17 @@ class GalleryTableSeeder extends Seeder
         factory(Album::class, 10)->create()->each(function ($a) {
             // add album content
             $a->contents()->save(factory(AlbumContent::class)->make());
-        });
 
-        // seed images
-        factory(Image::class, 50)->create()->each(function ($i) {
-            // add image content
-            $i->contents()->save(factory(ImageContent::class)->make());
+            // seed images
+            factory(Image::class, 10)->create(['album_id' => $a->id])->each(function ($i) {
+                // add image content
+                $i->contents()->save(factory(ImageContent::class)->make());
 
-            // add media through media library
-            // todo: make prettier
-            $faker = app(\Faker\Generator::class);
-            $i->addMediaFromUrl($faker->imageUrl())->toMediaLibrary();
+                // add media through media library
+                // todo: make prettier
+                $faker = app(\Faker\Generator::class);
+                $i->addMediaFromUrl($faker->imageUrl())->toMediaLibrary();
+            });
         });
     }
 

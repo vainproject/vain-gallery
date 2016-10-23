@@ -2,7 +2,7 @@
 
 return [
     'title' => [
-        'index' => 'Albums',
+        'index' => 'Alben',
         'teaser' => 'Übersicht über alle Alben.'
     ],
 ];

@@ -40,4 +40,13 @@ class Image extends Model implements Translatable, HasMedia
     {
         return $this->belongsTo(Album::class);
     }
+
+    public function getPublicUrlAttribute($value)
+    {
+        if ($media = $this->getMedia()->first()) {
+            return $media->getUrl();
+        }
+
+        return null;
+    }
 }

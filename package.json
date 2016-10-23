@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "main": "gulpfile-module.js",
   "dependencies": {
+    "masonry-layout": "^4.0.0",
     "blueimp-gallery": "^2.0.0"
   }
 }

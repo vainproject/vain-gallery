@@ -46,4 +46,22 @@ class Album extends Model implements Translatable
     {
         return $this->hasMany(Image::class);
     }
+
+    public function getCoverImageAttribute($value)
+    {
+        return $this->images->first();
+    }
+
+    public function getCoverImageUrlAttribute($value)
+    {
+        if ($this->cover_image == null) {
+            return null;
+        }
+
+        if ($media = $this->cover_image->getMedia()->first()) {
+            return $media->getUrl();
+        }
+
+        return null;
+    }
 }
