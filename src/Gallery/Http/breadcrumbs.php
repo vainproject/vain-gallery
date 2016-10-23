@@ -9,7 +9,7 @@ use Modules\Gallery\Entities\Image;
 
 Breadcrumbs::register('gallery.album.index', function ($breadcrumbs) {
     $breadcrumbs->parent('index.home');
-    $breadcrumbs->push(trans('gallery::gallery.title.index'), route('gallery.album.index'));
+    $breadcrumbs->push(trans('gallery::album.title.index'), route('gallery.album.index'));
 });
 
 Breadcrumbs::register('gallery.album.show', function ($breadcrumbs, $slug) {

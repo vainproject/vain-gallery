@@ -44,7 +44,7 @@ class GalleryServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../../config/config.php' => config_path('gallery.php'),
         ]);
-        
+
         $this->mergeConfigFrom(__DIR__ . '/../../../config/config.php', 'gallery');
     }
 
@@ -55,17 +55,7 @@ class GalleryServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = base_path('resources/views/modules/gallery');
-
-        $sourcePath = __DIR__ . '/../../../resources/views';
-
-        $this->publishes([
-            $sourcePath => $viewPath
-        ]);
-
-        $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/gallery';
-        }, config('view.paths')), [$sourcePath]), 'gallery');
+        $this->loadViewsFrom(__DIR__ . '/../../../resources/views', 'gallery');
     }
 
     /**
@@ -75,13 +65,7 @@ class GalleryServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = base_path('resources/lang/modules/gallery');
-
-        if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'gallery');
-        } else {
-            $this->loadTranslationsFrom(__DIR__ . '/../../../resources/lang', 'gallery');
-        }
+        $this->loadTranslationsFrom(__DIR__ . '/../../../resources/lang', 'gallery');
     }
 
     /**
