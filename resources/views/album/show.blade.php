@@ -27,7 +27,7 @@
                 {{-- Album information --}}
                 <h1>{{ $album->content->title }}</h1>
                 <hr>
-                <p>{{ $album->content->text }}</p>
+                <p>{!! $album->content->text !!} </p>
             </div>
         </div>
 
