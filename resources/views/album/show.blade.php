@@ -6,7 +6,6 @@
 
 @section('headline')
     <h1 class="text-uppercase">{{ $album->content->title }}</h1>
-    <h2>{{ $album->content->text }}</h2>
 @endsection
 
 @section('content')
@@ -16,7 +15,7 @@
                 {{-- Image Grid --}}
                 <div class="row">
                     @foreach($album->images as $image)
-                        <div class="col-md-5 image-item">
+                        <div class="col-md-6 image-item">
                             <a href="{{ $image->public_url }}" title="{{ $image->content->title }}" data-gallery>
                                 <img class="img-responsive" src="{{ $image->public_url }}">
                             </a>
@@ -24,7 +23,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-md-offset-1">
                 {{-- Album information --}}
                 <h1>{{ $album->content->title }}</h1>
                 <hr>

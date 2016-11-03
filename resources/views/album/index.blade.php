@@ -13,7 +13,7 @@
     <div id="gallery">
         <div class="row">
             @foreach($albums as $album)
-                <div class="col-sm-4">
+                <div class="col-sm-4 gallery-item">
                     <a href="{{ route('gallery.album.show', $album->slug) }}">
                         <img class="img-responsive" src="{{ $album->cover_image_url }}">
                         <p>{{ $album->content->title }}</p>

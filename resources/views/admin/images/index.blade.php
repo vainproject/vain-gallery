@@ -24,6 +24,7 @@
                     <thead>
                     <tr>
                         <td>@lang('gallery::admin.images.field.id')</td>
+                        <td>@lang('gallery::admin.images.field.album_id')</td>
                         <td>@lang('gallery::admin.images.field.slug')</td>
                         <td>@lang('gallery::admin.images.field.author')</td>
                         <td>@lang('gallery::admin.images.field.created_at')</td>
@@ -34,7 +35,8 @@
                     @foreach($images as $image)
                         <tr>
                             <td>{{ $image->id }}</td>
-                            <td>{{ $image->slug }} <a href="{{ route('gallery.image.show', ['slug' => $image->slug]) }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                            <td>{{ $image->album->content->title }} <a href="{{ route('gallery.album.show', ['slug' => $image->album->slug]) }}" target="_blank"><i class="fa fa-external-link"></i></a></td>
+                            <td>{{ $image->slug }} {{-- <a href="{{ route('gallery.image.show', ['slug' => $image->slug]) }}" target="_blank"><i class="fa fa-external-link"></i></a> --}}</td>
                             <td>@userbadge($image->user)</td>
                             <td>{{ $image->created_at ? $image->created_at->diffForHumans() : '-' }}</td>
                             <td class="text-right">
