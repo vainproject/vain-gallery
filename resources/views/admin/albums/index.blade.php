@@ -1,7 +1,7 @@
 @extends('gallery::admin.index')
 
 @section('title')
-    @lang('gallery::gallery.title.index')
+    @lang('gallery::admin.title.albums')
 @stop
 
 @section('content')
